@@ -41,13 +41,18 @@ export default function TaskDetail({ task }: Props) {
         >
           {getStatusLabel(task.status)}
         </span>
-      </p>
+      </p>{/* importしたgetStatusLabel関数を使用して、引数にstatusを渡す */}
       <p className={styles.info}>
         優先度 :{" "}
-        <span className={`${styles.badge} ${getPriorityClass(task.priority)}`}>
+        <span
+          className={`${styles.badge} ${getPriorityClass(
+            task.priority,
+            styles
+          )}`}
+        >
           {task.priority}
         </span>
-      </p>
+      </p>{/* importしたgetPriorityClass関数を使用して、引数にpriorityとstylesを渡す */}
       <p className={styles.info}>期限日 : {task.dueDate}</p>
       <p className={styles.info}>
         作成日 : {new Date(task.createdAt).toLocaleString()}
