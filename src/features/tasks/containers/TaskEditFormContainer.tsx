@@ -13,6 +13,7 @@ export default function TaskEditContainer() {
 
   // コンポーネントマウント時に、指定されたIDのタスクデータを取得
   useEffect(() => {
+  if (!id) return;
     async function fetchTask() {
       const task = await getTaskById(id);
       if (task) {
@@ -21,6 +22,7 @@ export default function TaskEditContainer() {
           description: task.description,
           priority: task.priority,
           dueDate: task.dueDate,
+          status: task.status // 追加
         });
       }
     }
